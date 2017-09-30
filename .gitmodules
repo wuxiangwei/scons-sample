@@ -1,0 +1,4 @@
+[submodule "third_party/accelio"]
+	path = third_party/accelio
+	url = https://github.com/accelio/accelio.git
+    branch = v1.7
