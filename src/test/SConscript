@@ -11,5 +11,4 @@ helloworld = env.Program(
     ],
 )
 
-# env.Install('#/', helloworld)
-env.Install('#/$INSTALL_DIR/bin', helloworld)
+env.Install('#/', helloworld)
