@@ -2,9 +2,11 @@
 
 import os
 
+# import atexit
+# import galaxy
+# atexit.register(galaxy.print_build_failures)
 
 project_root = os.path.normpath(os.getcwd())
-
 src_dir = os.path.join(project_root, 'src')
 build_dir = os.path.join(project_root, 'build')
 
@@ -25,6 +27,18 @@ env_dict = dict(
 # env = Environment(variables=env_vars,  **env_dict)
 env = Environment(**env_dict)
 del env_dict
+
+# --- lint ---
+
+def do_lint(env, target, source):
+    import buildscripts.lint
+    print("do lint")
+    if not buildscripts.lint.run_lint(["src/"]):
+        raise Exception( "lint errors" )
+
+
+env.Alias("lint", [], [do_lint])
+env.AlwaysBuild("lint")
 
 env.SConscript(
     dirs=[

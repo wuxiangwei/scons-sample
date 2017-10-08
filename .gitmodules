@@ -5,3 +5,7 @@
 	path = buildscripts/scons-3_0_0
 	url = https://github.com/SConsProject/scons.git
 	branch = rel_3.0.0
+[submodule "buildscripts/styleguide"]
+	path = buildscripts/styleguide
+	url = https://github.com/google/styleguide.git
+	branch = gh-pages
