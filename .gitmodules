@@ -6,3 +6,7 @@
 	path = third_party/curl
 	url = https://github.com/curl/curl.git
 	branch = curl-7_5_4_0
+[submodule "buildscripts/scons-3_0_0"]
+	path = buildscripts/scons-3_0_0
+	url = https://github.com/SConsProject/scons.git
+	branch = rel_3.0.0
