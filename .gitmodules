@@ -1,3 +1,7 @@
 [submodule "third_party/accelio"]
 	path = third_party/accelio
 	url = https://github.com/accelio/accelio.git
+[submodule "buildscripts/scons-3_0_0"]
+	path = buildscripts/scons-3_0_0
+	url = https://github.com/SConsProject/scons.git
+	branch = rel_3.0.0

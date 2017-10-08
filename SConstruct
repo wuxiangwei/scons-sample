@@ -3,13 +3,10 @@
 import os
 
 
-if os.getenv('PROJ_DIR'):
-    project_dir = os.getenv('PROJ_DIR')
-else:
-    project_dir = os.path.normpath(os.getcwd()+'/..')
+project_root = os.path.normpath(os.getcwd())
 
-src_dir = os.path.join(project_dir, 'src')
-build_dir = os.path.join(project_dir, 'build')
+src_dir = os.path.join(project_root, 'src')
+build_dir = os.path.join(project_root, 'build')
 
 def make_variant_dir_generator():
     memoized_variant_dir = [False]
