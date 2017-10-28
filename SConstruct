@@ -1,6 +1,7 @@
 # -*- mode: python; -*-
 
 import os
+import buildscripts
 
 # import atexit
 # import galaxy
@@ -31,13 +32,13 @@ del env_dict
 # --- lint ---
 
 def do_lint(env, target, source):
-    import buildscripts.lint
-    print("do lint")
-    if not buildscripts.lint.run_lint(["src/"]):
-        raise Exception( "lint errors" )
+    dirs = env.GetBuildPath( source )
+    from buildscripts import cpplint_wrapper
+    #  cpplint_wrapper.run( ['src'] )
+    cpplint_wrapper.run( dirs)
 
 
-env.Alias("lint", [], [do_lint])
+env.Alias("lint", ['src/common', 'src/test'], [do_lint])
 env.AlwaysBuild("lint")
 
 env.SConscript(
