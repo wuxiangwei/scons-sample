@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+import os
+import logging
+
+LOG = logging.getLogger()
+
+
+def init():
+    # 配置日志
+    log_path = "config.log"
+    if os.path.exists(log_path):
+        os.remove(log_path)
+
+    LOG.setLevel(logging.INFO)
+    filehandler = logging.FileHandler(log_path)
+    filehandler.setLevel(logging.INFO)
+
+    fmt = "%(asctime)-15s [%(levelname)s] %(lineno)d : %(message)s"
+    datefmt = "%a %d %b %Y %H:%M:%S"
+    formatter = logging.Formatter(fmt, datefmt)
+    filehandler.setFormatter(formatter)
+
+    streamhandler = logging.StreamHandler()
+    streamfmt = "[%(levelname)s] %(message)s"
+    streamformater = logging.Formatter(streamfmt)
+    streamhandler.setFormatter(streamformater)
+
+    LOG.addHandler(filehandler)
+    LOG.addHandler(streamhandler)
+
+
+def list_submodules():
+    LOG.info('list submodules')
+
+
+def update_submodules():
+    LOG.info('update submodules')
+
+
+def main():
+    init()
+    list_submodules()
+    update_submodules()
+
+    LOG.warn('This is a warning')
+
+
+if __name__ == '__main__':
+    main()
