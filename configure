@@ -13,6 +13,7 @@ def init():
     if os.path.exists(log_path):
         os.remove(log_path)
 
+    # 配置文件日志
     LOG.setLevel(logging.INFO)
     filehandler = logging.FileHandler(log_path)
     filehandler.setLevel(logging.INFO)
@@ -22,6 +23,7 @@ def init():
     formatter = logging.Formatter(fmt, datefmt)
     filehandler.setFormatter(formatter)
 
+    # 配置标准输出日志
     streamhandler = logging.StreamHandler()
     streamfmt = "[%(levelname)s] %(message)s"
     streamformater = logging.Formatter(streamfmt)
