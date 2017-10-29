@@ -35,10 +35,10 @@ def do_lint(env, target, source):
     dirs = env.GetBuildPath( source )
     from buildscripts import cpplint_wrapper
     #  cpplint_wrapper.run( ['src'] )
-    cpplint_wrapper.run( dirs)
+    cpplint_wrapper.do_lint( dirs)
 
 
-env.Alias("lint", ['src/common', 'src/test'], [do_lint])
+env.Alias('lint', ['src/common', 'src/test'], [do_lint])
 env.AlwaysBuild("lint")
 
 env.SConscript(
